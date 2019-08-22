@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DbAccess.fs" />
+    <Compile Include="UserProfile\UserProfileQueries.fs" />
+    <Compile Include="UserProfile\UserProfileConverter.fs" />
+    <Compile Include="UserProfile\UserProfileRepository.fs" />
+    <ProjectReference Include="..\Domain\Domain.fsproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <PackageReference Include="FSharp.Data.SqlClient" Version="2.0.5" />
+  </ItemGroup>
+</Project>
