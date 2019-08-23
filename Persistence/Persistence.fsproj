@@ -7,14 +7,11 @@
     <Compile Include="UserProfile\UserProfileQueries.fs" />
     <Compile Include="UserProfile\UserProfileConverter.fs" />
     <Compile Include="UserProfile\UserProfileRepository.fs" />
-    <ProjectReference Include="..\Domain\Domain.fsproj" />
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
-    <PackageReference Include="FSharp.Data.SqlClient" Version="2.0.5" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="SQL\UserProfile\GetUsersQuery.sql" />
     <None Include="SQL\UserProfile\GetAddressQuery.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <ProjectReference Include="..\Domain\Domain.fsproj" />
+    <PackageReference Include="FSharp.Data.SqlClient" Version="2.0.5" />
   </ItemGroup>
 </Project>

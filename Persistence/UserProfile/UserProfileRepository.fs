@@ -7,7 +7,7 @@ type UserProfileRepository () =
 
     interface IUserProfileRepository with
 
-        member x.GetUsers: Result<List<UserOutput>,string> = 
+        member x.GetUsers = 
             let result = 
                 GetUsersQuery.Create(DbAccess.connectionString).Execute()
                 |> Seq.map UserProfileConverter.fromGetUsersToModel
