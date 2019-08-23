@@ -15,3 +15,10 @@ module UserProfileConverter =
                 | None -> "No city"
             Country = r.Country
         }
+
+    let fromGetUsersToModel (r: GetUsersQuery.Record) : UserOutput =
+        {
+            UserId = r.UserId
+            FirstName = r.FirstName
+            LastName = r.LastName
+        }

@@ -7,6 +7,12 @@ type UserProfileRepository () =
 
     interface IUserProfileRepository with
 
+        member x.GetUsers: Result<List<UserOutput>,string> = 
+            let result = GetUsersQuery.Create(DbAccess.connectionString).Execute()
+            match result with  
+            | [] -> UserProfileConverter.fromGetUsersToModel 1
+            //| None -> Error ("Error")
+
         member x.GetUserAddress (userId) =
             let result = GetAddressQuery.Create(DbAccess.connectionString).Execute(userId)
             match result with 

@@ -3,6 +3,8 @@
 open FSharp.Data
 open Persistence
 
-type GetAddressQuery = 
-    
+type GetAddressQuery =     
     SqlCommandProvider<const(SqlFile<"SQL\UserProfile\GetAddressQuery.sql">.Text), DbAccess.connectionString, SingleRow = true>
+
+type GetUsersQuery =     
+    SqlCommandProvider<const(SqlFile<"SQL\UserProfile\GetUsersQuery.sql">.Text), DbAccess.connectionString>
