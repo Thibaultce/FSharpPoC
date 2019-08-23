@@ -8,10 +8,13 @@ type UserProfileRepository () =
     interface IUserProfileRepository with
 
         member x.GetUsers: Result<List<UserOutput>,string> = 
-            let result = GetUsersQuery.Create(DbAccess.connectionString).Execute()
+            let result = 
+                GetUsersQuery.Create(DbAccess.connectionString).Execute()
+                |> Seq.map UserProfileConverter.fromGetUsersToModel
+                |> Seq.toList
             match result with  
-            | [] -> UserProfileConverter.fromGetUsersToModel 1
-            //| None -> Error ("Error")
+            | [] -> Error "No user in Database"
+            | _ -> Ok result
 
         member x.GetUserAddress (userId) =
             let result = GetAddressQuery.Create(DbAccess.connectionString).Execute(userId)
